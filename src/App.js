@@ -6,11 +6,21 @@ import Login from "./page/Login";
 
 function App() {
   const [location, setLocation] = useState("home");
-  console.log(location);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  console.log("email", email);
+  console.log("password", password);
+
   return (
     <>
       <Header location={location} setLocation={setLocation} />
-      {location === "home" ? <Home /> : <Login />}
+      {location === "home" ? (
+        <Home email={email} password={password} />
+      ) : (
+        <Login setEmail={setEmail} setPassword={setPassword} />
+      )}
     </>
   );
 }
